@@ -1,0 +1,89 @@
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="/css/header/header.css">
+
+
+<div class="header">
+    <div class="top-menu">
+        <a href="#">Tải ứng dụng</a>
+        <a href="#">Chăm sóc khách hàng</a>
+        <a href="#">Nhà cung cấp</a>
+    </div>
+    <div class="main-menu">
+        <div class="logo"><a style="text-decoration: none;color: white;" href="/">Sendo</a></div>
+
+        <div class="logo">
+
+            <i class="fas fa-th"></i>
+            <div class="submenu">
+                <!-- Category -->
+                <% for (const item of categoryData) { %>
+                    <div class="category">
+                        <div class="category-title">
+                            <%= item.name %>
+                        </div>
+                        <div class="category-items">
+                            <!-- sub category -->
+                            <% item.Subcategories.forEach(subcategory=> { %>
+                                <div class="subcategory-item">
+                                    <a href="/product/<%= subcategory.id %>">
+                                        <%= subcategory.name %>
+                                    </a>
+                                </div>
+                                <% }) %>
+                        </div>
+                    </div>
+                    <% } %>
+            </div>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm trên Sendo" id="inputField" onkeypress="handleEnter(event)">
+            <button onclick="redirectToUrl()"><i class=" fas fa-search"></i></button>
+        </div>
+        <div class="right-menu">
+            <div class="cart">
+                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                <span class="badge">
+                    <% if (user && user.totalQuantity> 0) { %>
+                        <%= user.totalQuantity %>
+                            <% } else { %>
+                                0
+                                <% } %>
+                </span>
+            </div>
+
+            <!-- Hiển thị đăng nhập hoặc tên người dùng -->
+            <% if (user) { %>
+                <div class="user-menu">
+                    <span class="user-name">
+                        <%= user.fullName %>
+                    </span>
+                    <div class="user-dropdown">
+                        <a class="user-a" href="/profile">Thông tin cá nhân</a>
+                        <a class="user-a" href="/logout">Đăng xuất</a>
+                    </div>
+                </div>
+                <% } else { %>
+                    <a href="/login" class="btn-white">Đăng nhập</a>
+                    <% } %>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function redirectToUrl() {
+        const inputValue = document.getElementById('inputField').value;
+        const url = `http://localhost:3000/productre/?q=${encodeURIComponent(inputValue)}`;
+        window.location.href = url;
+    }
+
+    // Lắng nghe sự kiện Enter
+    function handleEnter(event) {
+        if (event.key === 'Enter') {
+            redirectToUrl();
+        }
+    }
+</script>

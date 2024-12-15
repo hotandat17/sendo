@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f8f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f8f5;
+}
+
+.left img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.right {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.right img {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+}
+
+.right h1 {
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.right form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.right form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+.right form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff4d4d;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.right form button:hover {
+    background-color: #cc0000;
+}
+
+.right .terms {
+    font-size: 12px;
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.right .terms a {
+    color: #00aaff;
+    text-decoration: none;
+}
+
+.right .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.right .social-icons img {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+}
+
+.right .register {
+    width: 75%;
+    padding: 10px;
+    background-color: #00aaff;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.right .register:hover {
+    background-color: #0077cc;
+}

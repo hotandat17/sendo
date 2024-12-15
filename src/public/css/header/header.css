@@ -1,0 +1,234 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+.header {
+    background-color: #e40000;
+    padding: 10px 20px;
+}
+
+.top-menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.top-menu a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+.main-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/* Logo & Submenu Styles */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.logo i {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+}
+
+.submenu .category {
+    margin-bottom: 10px;
+    position: relative;
+    width: 10em;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.submenu .category:last-child {
+    margin-bottom: 0;
+}
+
+.submenu .category-title {
+    margin-bottom: 5px;
+    cursor: pointer;
+
+}
+
+.submenu .category-items {
+    display: none;
+    /* Ẩn mặc định */
+    position: absolute;
+    top: 0;
+    left: 100%;
+    /* Hiện danh sách con bên phải */
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    width: 50em;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.submenu .category-items a {
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+
+/* Hover Effects */
+.logo:hover .submenu {
+    display: block;
+    /* Hiện toàn bộ submenu khi hover logo */
+}
+
+.submenu .category:hover .category-items {
+    display: grid;
+    /* Hiện danh mục con khi hover vào category */
+}
+
+/* Search Bar Styles */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    flex-grow: 1;
+    margin: 0 20px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    flex-grow: 1;
+    font-size: 16px;
+}
+
+.search-bar button {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.search-bar button i {
+    font-size: 16px;
+}
+
+/* Right Menu Styles */
+.right-menu {
+    display: flex;
+    align-items: center;
+}
+
+.right-menu .cart {
+    position: relative;
+}
+
+.right-menu .cart .badge {
+    position: absolute;
+    top: -12px;
+    right: 0px;
+    background-color: #ff0000;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+}
+
+.right-menu a:nth-child(1) {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.btn-white {
+    display: inline-block;
+    background-color: white;
+    color: #000000;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #e40000;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-white:hover {
+    background-color: #ffffff8e;
+    color: rgb(0, 0, 0);
+}
+
+
+
+.user-menu {
+    position: relative;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+}
+
+.user-menu .user-name {
+    padding: 10px 15px;
+    background-color: #ffffff04;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.user-menu .user-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -52px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.user-menu .user-dropdown a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.user-menu .user-dropdown a:hover {
+    background-color: #f1f1f1;
+    color: #e61313;
+}
+
+.user-menu:hover .user-dropdown {
+    display: block;
+}

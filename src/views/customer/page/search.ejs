@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mô tả sản phẩm tại Sende">
+    <link rel="stylesheet" href="/css/product/productlol.css">
+    <title>Sendo - <%- title %></title>
+</head>
+
+<body>
+    <%- include('../header/header.ejs') %>
+        <div class="container">
+            <div class="sidebar">
+                <h3>
+                    Địa điểm
+                </h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" />
+                        Hồ Chí Minh
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        Hà Nội
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        Lâm Đồng
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        Đà Nẵng
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        <a href="#">
+                            Xem thêm
+                        </a>
+                    </li>
+                </ul>
+                <h3>
+                    Phương thức vận chuyển
+                </h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" />
+                        Hỏa tốc
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        Nhanh
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        Tiêu chuẩn
+                    </li>
+                </ul>
+                <h3>
+                    Loại shop
+                </h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" />
+                        SenMall
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        Shop+
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        Shop tự giao
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        Shop uy tín
+                    </li>
+                </ul>
+                <h3>
+                    Ưu đãi
+                </h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" />
+                        SĂN SALE SHO
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        Flash Sale
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        Mua trước trả sau
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        Mua gói siêu h...
+                    </li>
+                    <li>
+                        <input type="checkbox" />
+                        <a href="#">
+                            Xem thêm
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content">
+                <h2>
+                    Sản phẩm
+                </h2>
+                <div class="sort">
+                    <span>
+                        Sắp xếp theo:
+                    </span>
+                    <select>
+                        <option>
+                            Đề cử
+                        </option>
+                    </select>
+                </div>
+                <div class="products">
+
+
+                    <% if (data.length===0) { %>
+                        <center>
+                            <h3>
+                                <%= message %>
+                            </h3>
+                        </center>
+                        <% } else { %>
+                            <% for (const item of data) { %>
+                                <a href="/product/detail/<%= item.id %>" style="text-decoration: none;">
+                                    <div class="product-card">
+                                        <img alt="<%= item.name %>" height="220" src="<%= item.image %>" width="220" />
+                                        <div class="product-info">
+                                            <h3>
+                                                <%= item.name %>
+                                            </h3>
+                                            <div class="price">
+                                                <%= item.price %>
+                                            </div>
+                                            <div class="buy-later">
+                                                <i class="fas fa-clock"></i>
+                                                Mua trước trả sau
+                                            </div>
+                                            <div class="buy-now">
+                                                Mở bán
+                                            </div>
+                                            <div class="rating">
+                                                4.7/5
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <% } %>
+                                    <% if (total && data.length + offset < total) { %>
+                                        <div class="load-more">
+                                            <form method="get" action="">
+                                                <input type="hidden" name="limit" value="<%= limit %>">
+                                                <input type="hidden" name="offset" value="<%= offset + limit %>">
+                                                <button type="submit">Xem thêm</button>
+                                            </form>
+                                        </div>
+                                        <% } %>
+                                            <% } %>
+                </div>
+            </div>
+        </div>
+        <%- include( '../fooder/fooder.ejs' ) -%>
+</body>
+
+</html>
