@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/auth/account.css">
+    <title>Account</title>
+</head>
+
+<body>
+    <%- include( '../header/header.ejs' ) -%>
+        <div class="container">
+            <div class="sidebar">
+                <h2>
+                    Nguyen Y Thien
+                </h2>
+                <ul>
+                    <li>
+                        <a class="active" href="#">
+                            Thông tin tài khoản
+                        </a>
+                    </li>
+
+
+                </ul>
+                <h2>
+                    Đơn hàng
+                </h2>
+                <ul>
+                    <li>
+                        <a href="#">
+                            Sản phẩm
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Đơn hàng dịch vụ tiện ích
+                        </a>
+                    </li>
+                </ul>
+                <h2>
+                    Hỏi đáp
+                </h2>
+                <ul>
+                    <li>
+                        <a href="#">
+                            Hỏi đáp
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content">
+                <h2>
+                    Thông tin tài khoản
+                </h2>
+                <div class="form-group">
+                    <div class="image-upload">
+                        <img alt="User profile picture" height="100"
+                            src="https://th.bing.com/th/id/OIP.8ThYiAqcQus_wmB77aHXNAHaIy?rs=1&pid=ImgDetMain"
+                            width="100" />
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Danh xưng *
+                    </label>
+                    <div class="radio-group">
+                        <input id="male" name="gender" type="radio" value="male" />
+                        <label for="male">
+                            Anh
+                        </label>
+                        <input checked="" id="female" name="gender" type="radio" value="female" />
+                        <label for="female">
+                            Chị
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name">
+                        Họ và tên *
+                    </label>
+                    <input id="name" type="text" value="Nguyen Y Thien" />
+                </div>
+                <div class="form-group">
+                    <label for="phone">
+                        Số điện thoại *
+                    </label>
+                    <input id="phone" type="text" value="123445656" />
+                </div>
+                <div class="form-group">
+                    <label for="email">
+                        Email cá nhân
+                    </label>
+                    <input id="email" placeholder="Nhập email thường sử dụng" type="email" />
+                </div>
+                <div class="form-group">
+                    <label for="dob">
+                        Ngày sinh
+                    </label>
+                    <input id="dob" type="date" value="2002-09-14" />
+                </div>
+                <div class="form-group submit-btn">
+                    <button>
+                        Cập nhật
+                    </button>
+                </div>
+                <div class="form-group link">
+                    <a href="#">
+                        Quản lý tài khoản
+                    </a>
+                </div>
+            </div>
+        </div>
+        <%- include( '../fooder/fooder.ejs' ) -%>
+</body>
+
+</html>

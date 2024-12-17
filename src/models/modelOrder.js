@@ -21,12 +21,23 @@ const Order = sequelize.define('Order', {
         type: DataTypes.STRING,
         defaultValue: 'pending',
     },
+    fullName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    phoneNumber: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    address: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
 },
     {
         tableName: 'order',
         timestamps: true,
     });
-
 
 // relationship
 Order.belongsTo(User, { foreignKey: 'userId' });

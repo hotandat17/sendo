@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-order {
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #d32f2f;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    flex: 2;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group input[type="radio"] {
+    flex: 0;
+    margin-right: 5px;
+}
+
+.form-group .radio-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-group .radio-group label {
+    margin-right: 20px;
+}
+
+.form-group .email-info {
+    display: flex;
+    align-items: center;
+}
+
+.form-group .email-info img {
+    margin-left: 10px;
+}
+
+.form-group .checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-group .checkbox-group input {
+    margin-right: 5px;
+}
+
+.form-group .checkbox-group label {
+    font-size: 14px;
+}
+
+.btn-submit {
+    background-color: #d32f2f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #b71c1c;
+}

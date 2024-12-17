@@ -1,0 +1,159 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+    width: 250px;
+    border-right: 1px solid #e0e0e0;
+    padding-right: 20px;
+}
+
+.sidebar h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.sidebar ul li a.active {
+    color: #e53935;
+}
+
+.sidebar ul li a:hover {
+    color: #e53935;
+}
+
+.content {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.content h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="date"]:focus {
+    border-color: #4caf50;
+}
+
+.form-group .radio-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-group .radio-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+.form-group .radio-group label {
+    margin-right: 20px;
+}
+
+.form-group .image-upload {
+    display: flex;
+    align-items: center;
+}
+
+.form-group .image-upload img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.form-group .image-upload button {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #e53935;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group .image-upload button:hover {
+    background-color: #d32f2f;
+}
+
+.form-group .submit-btn {
+    text-align: right;
+}
+
+.form-group .submit-btn button {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #e53935;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group .submit-btn button:hover {
+    background-color: #d32f2f;
+}
+
+.form-group .link {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.form-group .link a {
+    color: #1e88e5;
+    text-decoration: none;
+}
+
+.form-group .link a:hover {
+    text-decoration: underline;
+}

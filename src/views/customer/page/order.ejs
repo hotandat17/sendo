@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/product/order.css">
+    <title>Đặt Hàng - <%= title %>
+    </title>
+</head>
+
+<body>
+    <%- include( '../header/header.ejs' ) -%>
+        <div class="container">
+            <div class="header-order">
+                ĐỊA CHỈ NHẬN HÀNG
+            </div>
+            <div class="form-group">
+                <label for="name">
+                    HỌ TÊN NGƯỜI NHẬN
+                </label>
+                <input id="name" type="text" value="Nguyen Y Thien" />
+            </div>
+            <div class="form-group">
+                <label for="phone">
+                    SỐ ĐIỆN THOẠI
+                </label>
+                <input id="phone" type="text" value="121231232" />
+            </div>
+            <div class="form-group">
+                <label for="address">
+                    ĐỊA CHỈ
+                </label>
+                <input id="address" placeholder="Nhập số nhà, tên đường" type="text" />
+            </div>
+            <div class="form-group">
+                <label>
+                    CHỌN LOẠI ĐỊA CHỈ
+                </label>
+                <div class="radio-group">
+                    <label>
+                        <input name="address-type" type="radio" value="home" />
+                        Nhà riêng
+                    </label>
+                    <label>
+                        <input name="address-type" type="radio" value="company" />
+                        Công ty
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    Phương thức thanh toán
+                </label>
+                <div class="radio-group">
+                    <label>
+                        <input name="address-type" type="radio" value="home" />
+                        Momo
+                    </label>
+                    <label>
+                        <input name="address-type" type="radio" value="company" />
+                        VNPLAY
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">
+                    EMAIL ( không bắt buộc )
+                </label>
+                <div class="email-info">
+                    <input id="email" placeholder="Nhập để nhận thông tin đơn hàng qua email" type="text" />
+                    <img alt="Email icon" height="20"
+                        src="https://storage.googleapis.com/a1aa/image/3NvHGs9rhm7zDduJVV09pt6FgageBFN6aYsoCsJlxJ3k779JA.jpg"
+                        width="20" />
+                </div>
+            </div>
+            <button class="btn-submit">
+                Đặt hàng
+            </button>
+        </div>
+        <%- include( '../fooder/fooder.ejs' ) -%>
+</body>
+
+</html>

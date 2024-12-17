@@ -29,6 +29,6 @@ const CartItems = sequelize.define('CartItems', {
 
 // relationship
 CartItems.belongsTo(Cart, { foreignKey: 'cartId' });
-CartItems.belongsTo(Product, { foreignKey: 'productId' });
+CartItems.belongsTo(Product, { foreignKey: 'productId', as: 'product' });
 
 module.exports = { CartItems }

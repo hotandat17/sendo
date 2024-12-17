@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/product/cart.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <title>Sendo - <%= title %>
+    </title>
+</head>
+<%- include( '../header/header.ejs' ) -%>
+
+    <body>
+
+        <div class="container-cart">
+
+            <% for (const item of data) { %>
+
+                <div class="cart-item">
+                    <img alt="Product image of a large foldable storage bag" height="80"
+                        src="<%= item['product.image'] %>" width="80" />
+                    <div class="cart-item-details">
+                        <h4>
+                            <%= item['product.name'] %>
+                        </h4>
+                        <button>
+                            Mua trước trả sau
+                        </button>
+                        <p>
+                            <%= item['product.description'].length> 90 ? item['product.description'].substring(0, 90) +
+                                '...' : item['product.description'] %>
+                        </p>
+                        <p>
+                            <i class="fas fa-ticket-alt"></i>
+                            Mã giảm giá của Shop
+                        </p>
+                    </div>
+                    <div class="cart-item-price">
+                        <%= item['product.price'] %>đ
+                    </div>
+
+                    <div class="cart-item-quantity">
+                        <button class="decrease" data-id="<%= item.id %>">-</button>
+                        <input type="text" value="<%= item.quantity %>" class="quantity-input" />
+                        <button class="increase" data-id="<%= item.id %>">+</button>
+                    </div>
+                    <div class="cart-item-actions">
+                        <div class="cart-item-actions">
+                            <form action="/show-cart/<%= item.productId %>" method="post">
+                                <input type="hidden" name="quantity" class="quantity-input-hidden" />
+                                <button class="update-btn" type="submit">Cập nhật</button>
+                            </form>
+                            <form action="/show-cart/delete/<%= item.id %>" method="post" style="display: inline;">
+                                <button type="submit" class="delete-btn">Xóa</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <% } %>
+
+                    <div class="summary">
+                        <h3>
+                            Mã ưu đãi Sendo (11)
+                            <a href="#">Chọn/nhập mã</a>
+                        </h3>
+                        <p>
+                            Tạm tính (1 sản phẩm):
+                            <span>
+                                <%= totalPrice %>
+                            </span>
+                        </p>
+                        <button>Mua ngay</button>
+                    </div>
+        </div>
+        <%- include( '../fooder/fooder.ejs' ) -%>
+    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartItems = document.querySelectorAll('.cart-item');
+            cartItems.forEach(cartItem => {
+                const decrementButton = cartItem.querySelector('.decrease');
+                const incrementButton = cartItem.querySelector('.increase');
+                const quantityInput = cartItem.querySelector('.quantity-input');
+                const quantityInputForm = cartItem.querySelector('.quantity-input-hidden');
+                const syncQuantity = () => {
+                    if (quantityInputForm && quantityInput) {
+                        quantityInputForm.value = quantityInput.value;
+                    }
+                };
+
+                decrementButton.addEventListener('click', () => {
+                    let currentQuantity = parseInt(quantityInput.value) || 0;
+                    if (currentQuantity > 1) {
+                        quantityInput.value = currentQuantity - 1;
+                        syncQuantity();
+                    }
+                });
+
+                incrementButton.addEventListener('click', () => {
+                    let currentQuantity = parseInt(quantityInput.value) || 0;
+                    quantityInput.value = currentQuantity + 1;
+                    syncQuantity();
+                });
+
+                quantityInput.addEventListener('input', syncQuantity);
+
+
+            });
+        });
+
+
+
+    </script>
+
+</html>

@@ -2,6 +2,8 @@ const { UUIDV4, Sequelize, Op } = require('sequelize');
 const { Product } = require('../../models/modelProduct');
 const { Cart } = require('../../models/modelCart');
 const { CartItems } = require('../../models/modelCartItems');
+const { OrderItems } = require('../../models/modelOrderItems');
+const { Order } = require('../../models/modelOrder');
 
 
 // handle create product 
@@ -265,6 +267,153 @@ const addToCartController = async (req, res) => {
 };
 
 
+const getToCartController = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        //Check User ID
+        if (!userId) {
+            return res.redirect('/login');
+        };
+        // const product = await Product.findAll();
+        // if (!product) {
+        //     return res.redirect(`/product/detail/${product.id}`);
+        // };
+
+        const cart = await Cart.findOne({
+            where: { userId: userId },
+        });
+        if (!cart) {
+            return res.redirect('/login');
+        };
+        const cartItems = await CartItems.findAll({
+            where: { cartId: cart.id },
+            include: [{
+                model: Product,
+                as: 'product',
+            }],
+            raw: true
+        });
+        if (!cartItems) {
+            return res.redirect('/login');
+        };
+        let totalPrice = 0;
+        cartItems.forEach(item => {
+            totalPrice += parseInt(item['product.price']) * item.quantity;
+        });
+
+        return res.render('customer/page/cart', {
+            title: 'Giỏ hàng',
+            data: cartItems,
+            totalPrice: `${totalPrice.toLocaleString('vi-VN')}.000 VND`,
+        });
+
+    } catch (error) {
+        console.log(error)
+        return res.redirect('/404');
+    }
+}
+
+const updateToCartController = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const productId = req.params.productId;
+        const quantity = req.body.quantity;
+        //Check User ID
+        if (!userId) {
+            return res.redirect('/login');
+        };
+        const cart = await Cart.findOne({
+            where: { userId: userId },
+        });
+        if (!cart) {
+            return res.redirect('/login');
+        };
+        const cartItem = await CartItems.findOne({
+            where: { cartId: cart.id, productId: productId }
+        });
+
+        if (!cartItem) {
+            return res.status(404).json({ message: 'Sản phẩm không có trong giỏ hàng' });
+        }
+
+        cartItem.quantity = quantity;
+        await cartItem.save();
+
+        return res.redirect('/show-cart');
+    } catch (error) {
+        console.log(error)
+        return res.redirect('/404');
+    }
+}
+
+const deleteToCartController = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const productId = req.params.productId;
+        const cart = await Cart.findOne({ where: { userId: req.user.id } });
+        if (!cart) {
+            return res.redirect('/login');
+        };
+        await CartItems.destroy({ where: { id: id, cartId: cart.id } });
+        return res.redirect('/show-cart');
+    } catch (error) {
+        console.log(error)
+        return res.redirect('/404');
+    }
+}
+
+const addOrderController = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const { fullName, phoneNumber, address } = req.body;
+        if (!userId) {
+            return res.redirect('/login');
+        }
+        const cart = await Cart.findOne({
+            where: { userId },
+        });
+        // if (!cart) {
+        //     return res.redirect('/login');
+        // }
+        // const cartIte = await CartItems.findAll({
+        //     where: { cartId: cart.id },
+        // })
+
+        // if (!cart || !cartIte || cartIte.length === 0) {
+        //     return res.status(400).json({ message: 'Giỏ hàng trống!' });
+        // }
+
+        // const totalAmount = cartIte.reduce((sum, item) => {
+        //     return sum + item.product.price * item.quantity;
+        // }, 0);
+
+        // const order = await Order.create({
+        //     userId,
+        //     fullName,
+        //     phoneNumber,
+        //     address,
+        //     totalAmount,
+        //     status: 'pending',
+        // });
+
+        // const orderItemsData = cartIte.map(item => ({
+        //     orderId: order.id,
+        //     productId: item.productId,
+        //     quantity: item.quantity,
+        // }));
+
+        // await OrderItems.bulkCreate(orderItemsData);
+        // await CartItems.destroy({ where: { cartId: cart.id } });
+
+        return res.render('customer/page/order',
+            { title: 'Đặt hàng ', message: 'Đặt hàng thành công!' });
+    } catch (error) {
+        console.error(error);
+        return res.redirect('/404');
+    }
+};
+
+
 module.exports = {
     productCreateController,
     productGetController,
@@ -272,4 +421,8 @@ module.exports = {
     searchProduct,
     showProductHome,
     addToCartController,
+    getToCartController,
+    updateToCartController,
+    deleteToCartController,
+    addOrderController,
 }

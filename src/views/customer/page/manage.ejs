@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/product/manage.css">
+    <title>Quản lý đơn hànghàng</title>
+</head>
+
+<body>
+    <%- include( '../header/header.ejs' ) -%>
+        <div class="container">
+            <div class="sidebar">
+                <img alt="User profile picture" height="50"
+                    src="https://th.bing.com/th/id/OIP.8ThYiAqcQus_wmB77aHXNAHaIy?rs=1&pid=ImgDetMain" width="50" />
+                <h2>
+                    Nguyen Y Thien
+                </h2>
+                <a class="active" href="#">
+                    Chỉnh sửa tài khoản
+                </a>
+                <h3>
+                    Quản lý giao dịch
+                </h3>
+                <a href="#">
+                    <i class="fas fa-box">
+                    </i>
+                    Đơn hàng
+                </a>
+                <a href="#">
+                    <i class="fas fa-shield-alt">
+                    </i>
+                    Bảo hiểm của tôi
+                </a>
+                <a href="#">
+                    <i class="fas fa-truck">
+                    </i>
+                    Đơn hàng dịch vụ tiện ích
+                </a>
+                <a href="#">
+                    <i class="fas fa-wallet">
+                    </i>
+                    Tài khoản Senpay
+                </a>
+                <a href="#">
+                    <i class="fas fa-map-marker-alt">
+                    </i>
+                    Địa chỉ nhận hàng
+                </a>
+                <a href="#">
+                    <i class="fas fa-heart">
+                    </i>
+                    Sản phẩm yêu thích
+                </a>
+                <h3>
+                    Quản lý tài khoản
+                </h3>
+                <a href="#">
+                    <i class="fas fa-user">
+                    </i>
+                    Thông tin tài khoản
+                </a>
+                <a href="#">
+                    <i class="fas fa-store">
+                    </i>
+                    Shop yêu thích
+                </a>
+                <a href="#">
+                    <i class="fas fa-gift">
+                    </i>
+                    Ưu đãi của tôi
+                </a>
+                <a href="#">
+                    <i class="fas fa-question-circle">
+                    </i>
+                    Hỏi đáp
+                </a>
+            </div>
+            <div class="content">
+                <h1>
+                    Quản lý đơn hàng
+                </h1>
+                <div class="tabs">
+                    <a class="active" href="#">
+                        Chờ xác nhận
+                    </a>
+                    <a href="#">
+                        Đã xác nhận
+                    </a>
+                    <a href="#">
+                        Đang vận chuyển
+                    </a>
+                    <a href="#">
+                        Đã giao hàng
+                    </a>
+                    <a href="#">
+                        Đã hủy
+                    </a>
+                </div>
+                <div class="order-status">
+                    <p>
+                        Bạn chưa có đơn hàng trong 6 tháng gần đây.
+                        <a href="#">
+                            Xem tất cả đơn hàng của bạn
+                        </a>
+                    </p>
+                    <div class="filter">
+                        <select>
+                            <option>
+                                Trong 6 tháng
+                            </option>
+                            <option>
+                                Trong 3 tháng
+                            </option>
+                            <option>
+                                Trong 1 tháng
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="order-item">
+                    <img alt="Product image" height="50"
+                        src="https://storage.googleapis.com/a1aa/image/tkIc0iTw67IOHhMuNUMvxO0bYJXluMrW2VnXugoeL0pfo47TA.jpg"
+                        width="50" />
+                    <div class="order-item-details">
+                        <p>
+                            <strong>
+                                Sản phẩm ABC
+                            </strong>
+                        </p>
+                        <p>
+                            Ngày đặt hàng: 01/01/2023
+                        </p>
+                    </div>
+                    <div class="order-item-status">
+                        Đang vận chuyển
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include( '../fooder/fooder.ejs' ) -%>
+</body>
+
+</html>

@@ -101,12 +101,22 @@ const logoutController = (req, res) => {
     return res.redirect('/customer/auth/login');
 };
 
+
 // Cart product
 
-
+const accountController = async (req, res) => {
+    try {
+        return res.render('customer/page/account', {
+            error: 'All fields are required.',
+        });
+    } catch (error) {
+        return res.redirect('/404');
+    }
+}
 
 module.exports = {
     loginController,
     registerController,
     logoutController,
+    accountController,
 }
