@@ -44,7 +44,7 @@
         </div>
         <div class="right-menu">
             <div class="cart">
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                <a href="/show-cart"><i class="fas fa-shopping-cart"></i></a>
                 <span class="badge">
                     <% if (user && user.totalQuantity> 0) { %>
                         <%= user.totalQuantity %>
@@ -61,7 +61,7 @@
                         <%= user.fullName %>
                     </span>
                     <div class="user-dropdown">
-                        <a class="user-a" href="/profile">Thông tin cá nhân</a>
+                        <a class="user-a" href="/account">Thông tin cá nhân</a>
                         <a class="user-a" href="/logout">Đăng xuất</a>
                     </div>
                 </div>

@@ -98,7 +98,7 @@ const logoutController = (req, res) => {
         blacklistedTokens.add(token);
         res.clearCookie('token');
     }
-    return res.redirect('/customer/auth/login');
+    return res.redirect('/login');
 };
 
 
